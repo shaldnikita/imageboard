@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>5051chan</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/styles/styles.css}" rel="stylesheet"/>
+</head>
+<body id="background">
+
+<table>
+    <tbody>
+
+    <tr id="board" th:each="thread: ${threads}">
+        <table id="thread">
+        <th><span th:text="'#'+${thread.getId()}+' '"/><span th:text="${thread.getTitle()}"/> <span th:text="${thread.getCreateDate()}"/></th>
+        <tr>
+            <td th:each="img : ${thread.getContentData()}">
+                <img th:id="thread-img" th:src="@{'data:image/jpeg;base64,'+${img.getContentString()}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${thread.getContentText()}"> </td>
+        </tr>
+            <tr th:each="message : ${thread.messages}">
+                <table id="message">
+                    <tr>
+                        <th><span th:text="'#'+${message.getId()}"> </span> <span th:text="${message.getCreateDate()}"> </span></th>
+                    </tr>
+                    <tr>
+                        <td th:text="${message.getContentText()}"></td>
+                    </tr>
+                </table>
+
+            </tr>
+        </table>
+    </tr>>
+    </tbody>
+</table>
+
+</body>
+</html>

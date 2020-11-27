@@ -12,7 +12,7 @@
     <tbody>
 
     <tr id="board" th:each="thread: ${threads}">
-        <table id="thread">
+        <table id="board-thread">
         <th><span th:text="'#'+${thread.getId()}+' '"/><span th:text="${thread.getTitle()}"/> <span th:text="${thread.getCreateDate()}"/></th>
         <tr>
             <td th:each="img : ${thread.getContentData()}">

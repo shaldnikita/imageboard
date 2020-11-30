@@ -9,6 +9,7 @@ import ru.shaldnikita.imageboard.port.adapter.database.SequenceGenerator;
 
 @Component
 @RequiredArgsConstructor
+//Does not work at all because we persist Thread, not Message
 public class MongoMessageListener extends AbstractMongoEventListener<Message> {
 
     private final SequenceGenerator sequenceGenerator;

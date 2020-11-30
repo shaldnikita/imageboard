@@ -1,7 +1,7 @@
 package ru.shaldnikita.imageboard.port.adapter.model.mapper;
 
 import ru.shaldnikita.imageboard.domain.model.Thread;
-import ru.shaldnikita.imageboard.port.adapter.model.MessageView;
+import ru.shaldnikita.imageboard.port.adapter.model.DataBatches;
 import ru.shaldnikita.imageboard.port.adapter.model.ThreadView;
 
 import java.time.format.DateTimeFormatter;
@@ -14,16 +14,12 @@ public class ThreadViewMapper {
                 thread.getId(),
                 thread.getTitle(),
                 thread.getContentText(),
-                thread.getContentData(),
+                new DataBatches(thread.getContentData()),
                 thread.getBoard(),
                 thread.getCreateDate().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),
                 thread.getMessages().stream()
-                        .map(m -> new MessageView(
-                                m.getId(),
-                                m.getContentText(),
-                                m.getContentData(),
-                                m.getCreateDate().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm"))
-                        )).collect(Collectors.toList())
+                        .map(MessageViewMapper::mapToView)
+                        .collect(Collectors.toList())
         );
     }
 }

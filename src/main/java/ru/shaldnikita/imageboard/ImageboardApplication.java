@@ -57,13 +57,43 @@ public class ImageboardApplication implements CommandLineRunner {
         );
         var message1 = new Message(
                 "sage",
-                new ArrayList<>(),
+                List.of(new Data(
+                        "meme.jpg",
+                        file.length,
+                        file
+                )),
                 LocalDateTime.now()
         );
 
         var message2 = new Message(
                 "not sage",
-                new ArrayList<>(),
+                List.of(
+                        new Data(
+                                "meme.jpg",
+                                file.length,
+                                file
+                        ),
+                        new Data(
+                                "meme.jpg",
+                                file.length,
+                                file
+                        ),
+                        new Data(
+                                "meme.jpg",
+                                file.length,
+                                file
+                        ),
+                        new Data(
+                                "meme.jpg",
+                                file.length,
+                                file
+                        ),
+                        new Data(
+                                "meme.jpg",
+                                file.length,
+                                file
+                        )
+                ),
                 LocalDateTime.now()
         );
 

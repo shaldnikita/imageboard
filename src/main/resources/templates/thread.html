@@ -14,7 +14,7 @@
         <th><span th:text="${thread.getTitle()}"/> <span th:text="${thread.getCreateDate()}"/></th>
     </tr>
     <tr>
-        <td th:each="img : ${thread.getContentData()}">
+        <td th:each="img : ${thread.getContentData().getData()}">
             <img id="thread-img" th:src="@{'data:image/jpeg;base64,'+${img.getContentString()}}"/>
         </td>
 

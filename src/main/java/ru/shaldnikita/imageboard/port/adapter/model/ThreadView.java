@@ -2,9 +2,9 @@ package ru.shaldnikita.imageboard.port.adapter.model;
 
 import lombok.AllArgsConstructor;
 import org.springframework.lang.Nullable;
-import ru.shaldnikita.imageboard.domain.model.Data;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @lombok.Data
@@ -20,7 +20,8 @@ public class ThreadView {
     private String contentText;
 
     @Nullable
-    private List<Data> contentData;
+    @Size(max = 4)
+    private DataBatches contentData;
 
     @NotNull
     private String board;
@@ -29,6 +30,7 @@ public class ThreadView {
     private String createDate;
 
     @NotNull
+    @Size(max = 4)
     private List<MessageView> messages;
 
 }

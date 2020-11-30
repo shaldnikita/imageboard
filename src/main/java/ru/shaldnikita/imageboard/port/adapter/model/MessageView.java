@@ -1,9 +1,6 @@
 package ru.shaldnikita.imageboard.port.adapter.model;
 
 import lombok.AllArgsConstructor;
-import ru.shaldnikita.imageboard.domain.model.Data;
-
-import java.util.List;
 
 @lombok.Data
 @AllArgsConstructor
@@ -13,7 +10,7 @@ public class MessageView {
 
     private String contentText;
 
-    private List<Data> contentData;
+    private DataBatches contentData;
 
     private String createDate;
 }

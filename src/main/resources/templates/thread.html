@@ -15,7 +15,7 @@
     </tr>
     <tr>
         <td th:each="img : ${thread.getContentData().getData()}">
-            <img id="thread-img" th:src="@{'data:image/jpeg;base64,'+${img.getContentString()}}"/>
+            <img id="thread-img" th:src="@{'data:image/jpeg;base64,'+${img.getBase64EncodedStringContent()}}"/>
         </td>
 
         <td th:text="${thread.getContentText()}"/>

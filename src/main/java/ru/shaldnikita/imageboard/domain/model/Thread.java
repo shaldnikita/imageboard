@@ -52,10 +52,11 @@ public class Thread {
         this.messages = messages;
     }
 
-    public Thread(String title, String contextText, List<Data> contentData, LocalDateTime createDate) {
+    public Thread(@NotNull String title, @Nullable String contentText, @Nullable List<Data> contentData, @NotNull String board, @NotNull LocalDateTime createDate) {
         this.title = title;
-        this.contentText = contextText;
+        this.contentText = contentText;
         this.contentData = contentData;
+        this.board = board;
         this.createDate = createDate;
     }
 

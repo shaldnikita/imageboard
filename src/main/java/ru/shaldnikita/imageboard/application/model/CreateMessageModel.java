@@ -11,6 +11,4 @@ public class CreateMessageModel {
 
     private final List<Data> contentData;
 
-    private final long threadId;
-
 }

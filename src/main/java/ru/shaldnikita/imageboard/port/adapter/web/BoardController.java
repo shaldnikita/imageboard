@@ -6,9 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import ru.shaldnikita.imageboard.domain.model.Board;
 import ru.shaldnikita.imageboard.domain.repository.ThreadRepository;
-import ru.shaldnikita.imageboard.port.adapter.model.BoardView;
-import ru.shaldnikita.imageboard.port.adapter.model.mapper.ThreadViewMapper;
+import ru.shaldnikita.imageboard.port.adapter.model.mapper.BoardViewMapper;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,12 +16,17 @@ public class BoardController {
 
     private final ThreadRepository threadRepository;
 
-    @GetMapping("/{board}")
-    public String getBoard(@PathVariable String board, Pageable pageable, Model model) {
-        var threads = threadRepository.findByBoardOrderByCreateDateDesc(board, pageable)
-                .map(ThreadViewMapper::domainToViewThread).toList();
+    @GetMapping("/{boardName}")
+    public String getBoard(@PathVariable String boardName, Pageable pageable, Model model) {
+        var threads = threadRepository.findByBoardOrderByCreateDateDesc(boardName, pageable);
 
-        model.addAttribute("board", new BoardView(board, threads));
+        var board = new Board(
+                threads.toList()
+        );
+
+        var boardView = BoardViewMapper.mapToView(board);
+
+        model.addAttribute("board", boardView);
         return "board";
     }
 

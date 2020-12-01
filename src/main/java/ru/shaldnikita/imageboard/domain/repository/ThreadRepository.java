@@ -10,6 +10,7 @@ public interface ThreadRepository {
 
     public Optional<Thread> findById(long id);
     public Page<Thread> findByBoardOrderByCreateDateDesc(String board, Pageable pageable);
+    public Optional<Thread> findByIdAndBoard(long id, String board);
     //public Page<Thread> findOrderByCreateDateDesc(Pageable pageable);
     public Thread insert(Thread thread);
 }

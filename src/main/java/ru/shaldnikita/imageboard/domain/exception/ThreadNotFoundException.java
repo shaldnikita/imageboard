@@ -9,4 +9,8 @@ public class ThreadNotFoundException extends RuntimeException{
     public ThreadNotFoundException(long id) {
         super("Thread with id=" + id + " not found.");
     }
+
+    public ThreadNotFoundException(long id, String board) {
+        super("Thread with id=" + id + " not found on board " + board + ".");
+    }
 }

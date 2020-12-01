@@ -22,6 +22,10 @@ public class Board {
 
     private List<Thread> threads = new ArrayList<>();
 
+    public Board(List<Thread> threads) {
+        this.threads = threads;
+    }
+
     public void addThread(Thread thread) {
         this.threads.add(thread);
     }

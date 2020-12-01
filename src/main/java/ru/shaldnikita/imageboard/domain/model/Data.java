@@ -11,7 +11,7 @@ public class Data {
     private long size;
     private byte[] content;
 
-    public String getContentString() {
+    public String getBase64EncodedStringContent() {
         var encodedData = Base64.getEncoder().encode(this.content);
         return new String(encodedData);
     }

@@ -8,6 +8,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @lombok.Data
+/**
+ * required for frontend table 2xN columns/rows splitting
+ * -------------
+ * | pic | pic |
+ * | puc | pic |
+ * | pic | pic |
+ * -------------
+ */
 public class DataBatches {
 
     private List<DataBatch> batches;

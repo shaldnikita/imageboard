@@ -18,6 +18,6 @@ public class CreateThreadModel {
     @Nullable
     private final List<Data> contentData;
 
-    @NotNull
+    @Nullable
     private String board;
 }
